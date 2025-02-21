@@ -7,12 +7,13 @@
     Dato: `?min= 21` stampa messaggio: `Numero deve essere <= 20`.*/
 
     if($_GET["numero"]){
-        for(i=$_GET["numero"], i<21; i++){
-            echo i;
+        $numero = $_GET["numero"];
+        for($i=$numero; $i<21; $i++){
+            echo $i;
         }
     }else{
-        for(i=1, i<21; i++){
-            echo i;
+        for($i=1; $i<21; $i++){
+            echo $i;
         }
     }
 ?>
