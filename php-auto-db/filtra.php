@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stile.css">
+    <title>Auto</title>
+</head>
+<body>
 <?php
     $host = "localhost:3306";  
     $user = "root";
@@ -12,34 +21,15 @@
         echo "connessione avvenuta con successo";
     }
 
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stile.css">
-    <title>Auto</title>
-</head>
-<body>
-    <form method="POST" action="filtra.php">
-    <select name="carburante">
-        <option value="benzina">benzina</option>
-        <option value="diesel">diesel</option>
-        <option value="gpl">gpl</option>
-    </select><br>
-    <button type="submit">Filtra</button><br>
-    </form>
-    <table>
-        <?php 
-        //creo la query
-        $query = "SELECT * FROM automobili";
-        //lancio la query
+    $auto = [];
+    if(isset($_POST['carburante'])){
+        $carburante = $_POST['carburante'];
+        $query = "SELECT * FROM automobili WHERE carburante = '$carburante'";
         $result = mysqli_query($conn, $query);
-
-        //prendo tutte le righe della query come array
         $auto = mysqli_fetch_all($result, MYSQLI_ASSOC);
-        ?>
+    }
+?>
+    <table>
         <thead>
         <tr>
             <th>Marca</th>

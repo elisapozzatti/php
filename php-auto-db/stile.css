@@ -1,0 +1,12 @@
+table {
+    width: 80%; /* Imposta una larghezza adeguata */
+    border-collapse: collapse; /* Unisce i bordi delle celle */
+    margin: 20px auto; /* Centra la tabella */
+    font-family: Arial, sans-serif;
+}
+
+th, td {
+    border: 2px solid black; /* Aggiunge il bordo visibile */
+    padding: 10px; /* Aggiunge spazio dentro le celle */
+    text-align: center; /* Centra il testo */
+}
