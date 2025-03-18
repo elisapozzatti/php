@@ -10,3 +10,14 @@ th, td {
     padding: 10px; /* Aggiunge spazio dentro le celle */
     text-align: center; /* Centra il testo */
 }
+.containerfiltra {
+    display: flex;
+    gap: 20px; 
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 20px; 
+    padding: 10px;
+}
+button{
+    margin-top: 10px;
+}

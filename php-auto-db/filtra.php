@@ -22,9 +22,16 @@
     }
 
     $auto = [];
-    if(isset($_POST['carburante'])){
+    if(isset($_POST['carburante']) && isset($_POST['marca'])){
         $carburante = $_POST['carburante'];
-        $query = "SELECT * FROM automobili WHERE carburante = '$carburante'";
+        $marca = $_POST['marca'];
+        if($carburante == "tutto" && $marca != "tutto"){
+            $query = "SELECT * FROM automobili WHERE marca = '$marca'";
+        }else if($marca == "tutto" && $carburante != "tutto"){
+            $query = "SELECT * FROM automobili WHERE carburante = '$carburante'";
+        }else{
+            $query = "SELECT * FROM automobili";
+        }
         $result = mysqli_query($conn, $query);
         $auto = mysqli_fetch_all($result, MYSQLI_ASSOC);
     }

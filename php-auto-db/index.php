@@ -22,14 +22,36 @@
     <title>Auto</title>
 </head>
 <body>
+    <div class="containerfiltra">
     <form method="POST" action="filtra.php">
+    <select name="marca">
+        <option value="ferrari">ferrari</option>
+        <option value="porsche">porsche</option>
+        <option value="mclaren">mclaren</option>
+        <option value="audi">audi</option>
+        <option value="ford">ford</option>
+        <option value="aston martin">aston martin</option>
+        <option value="bentley">bentley</option>
+        <option value="renault">renault</option>
+        <option value="nissan">nissan</option>
+        <option value="lamborghini">lamborghini</option>
+        <option value="chevrolet">chevrolet</option>
+        <option value="toyota">toyota</option>
+        <option value="mazda">mazda</option>
+        <option value="bugatti">bugatti</option>
+        <option value="pagani">pagani</option>
+        <option value="tutto">tutto</option>
+    </select>
     <select name="carburante">
         <option value="benzina">benzina</option>
         <option value="diesel">diesel</option>
         <option value="gpl">gpl</option>
+        <option value="tutto">tutto</option>
     </select><br>
     <button type="submit">Filtra</button><br>
     </form>
+    </div>
+    <section>
     <table>
         <?php 
         //creo la query
@@ -63,5 +85,6 @@
             echo "</tbody>";
         ?>
     </table>
+    </section>
 </body>
 </html>
