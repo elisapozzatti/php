@@ -1,0 +1,40 @@
+table {
+    width: 80%; 
+    border-collapse: collapse; 
+    margin: 20px auto; 
+    font-family: Arial, sans-serif;
+}
+
+th, td {
+    border: 2px solid black;
+    padding: 10px;
+    text-align: center; 
+}
+.containermenu{
+    display: flex;
+    gap: 10px;
+}
+.containerfiltra, .containeraggiungi {
+    display: flex; 
+    width: 20%;
+    border: 2px solid black;
+    padding: 10px;
+    margin-left: 20%;
+}
+.containermarca, .containercarburante{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.containeraggiungi input{
+    width:100%;
+    margin: 10px 0;
+}
+button{
+    margin-top: 10px;
+    background-color: blue;
+    border: blue;
+    color: white;
+    border-radius: 2px;
+}

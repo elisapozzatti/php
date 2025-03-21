@@ -18,12 +18,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stile.css">
+    <link rel="stylesheet" href="style.css">
     <title>Auto</title>
 </head>
 <body>
+    <div class="containermenu">  
     <div class="containerfiltra">
     <form method="POST" action="filtra.php">
+    <h3>Filtra per</h3>
+    <div class="containermarca">
+    <h4>marca: </h4>
     <select name="marca">
         <option value="ferrari">ferrari</option>
         <option value="porsche">porsche</option>
@@ -42,13 +46,29 @@
         <option value="pagani">pagani</option>
         <option value="tutto">tutto</option>
     </select>
+    </div>
+    <div class="containercarburante">
+    <h4>carburante: </h4>
     <select name="carburante">
         <option value="benzina">benzina</option>
         <option value="diesel">diesel</option>
         <option value="gpl">gpl</option>
         <option value="tutto">tutto</option>
-    </select><br>
+    </select>
+    </div>
     <button type="submit">Filtra</button><br>
+    </div>
+    </form>
+    <div class="containeraggiungi">
+    <form method="POST" action="aggiungi.php">
+    <h3>Aggiungi un'auto: </h3>
+    <input type="text" name="marca" placeholder="marca" required>
+    <input type="text" name="modello" placeholder="modello" required>
+    <input type="text" name="carburante" placeholder="carburante" required>
+    <input type="text" name="targa" placeholder="targa" required>
+    <input type="text" name="proprietario" placeholder="proprietario" required>
+    <button type="submit">Aggiungi</button><br>
+    </div>
     </form>
     </div>
     <section>

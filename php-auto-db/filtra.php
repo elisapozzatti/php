@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stile.css">
+    <link rel="stylesheet" href="style.css">
     <title>Auto</title>
 </head>
 <body>
@@ -22,19 +22,43 @@
     }
 
     $auto = [];
+
     if(isset($_POST['carburante']) && isset($_POST['marca'])){
         $carburante = $_POST['carburante'];
         $marca = $_POST['marca'];
+
         if($carburante == "tutto" && $marca != "tutto"){
-            $query = "SELECT * FROM automobili WHERE marca = '$marca'";
+            $query = "SELECT * FROM automobili WHERE marca = ?";
+            $stmt = mysqli_prepare($conn, $query);
+            mysqli_stmt_bind_param($stmt, 's', $marca);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            $auto = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            mysqli_stmt_close($stmt);
         }else if($marca == "tutto" && $carburante != "tutto"){
-            $query = "SELECT * FROM automobili WHERE carburante = '$carburante'";
-        }else{
+            $query = "SELECT * FROM automobili WHERE carburante = ?";
+            $stmt = mysqli_prepare($conn, $query);
+            mysqli_stmt_bind_param($stmt, 's', $carburante);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            $auto = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            mysqli_stmt_close($stmt);
+        }else if ($marca != "tutto" && $carburante != "tutto") {
+            $query = "SELECT * FROM automobili WHERE marca = ? AND carburante = ?";
+            $stmt = mysqli_prepare($conn, $query);
+            mysqli_stmt_bind_param($stmt, 'ss', $marca, $carburante);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            $auto = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            mysqli_stmt_close($stmt);
+        }else if($marca == "tutto" && $carburante == "tutto"){
             $query = "SELECT * FROM automobili";
-        }
-        $result = mysqli_query($conn, $query);
-        $auto = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $result = mysqli_query($conn, $query);
+            $auto = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        }        
     }
+
+    mysqli_close($conn);
 ?>
     <table>
         <thead>
