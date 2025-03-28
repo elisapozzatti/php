@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.kid{
+    margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+}
